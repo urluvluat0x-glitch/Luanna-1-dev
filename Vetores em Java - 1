@@ -1,0 +1,56 @@
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner entrada = new Scanner(System.in);
+
+        int[] numeros = new int[10];
+        int soma = 0;
+        int maior, menor;
+        int pares = 0;
+        int impares = 0;
+
+        for (int i = 0; i < 10; i++) {
+            System.out.print("Digite o " + (i + 1) + "º número: ");
+            numeros[i]++;
+
+            numeros[i] = entrada.nextInt();
+            soma += numeros[i];
+
+            if (i == 0) {
+                maior = numeros[i];
+                menor = numeros[i];
+            }
+
+            if (numeros[i] % 2 == 0) {
+                pares++;
+            } else {
+                impares++;
+            }
+        }
+
+        maior = numeros[0];
+        menor = numeros[0];
+
+        for (int i = 1; i < 10; i++) {
+            if (numeros[i] > maior) {
+                maior = numeros[i];
+            }
+
+            if (numeros[i] < menor) {
+                menor = numeros[i];
+            }
+        }
+
+        double media = soma / 10.0;
+
+        System.out.println("\nMédia: " + media);
+        System.out.println("Maior número: " + maior);
+        System.out.println("Menor número: " + menor);
+        System.out.println("Quantidade de pares: " + pares);
+        System.out.println("Quantidade de ímpares: " + impares);
+
+        entrada.close();
+    }
+}

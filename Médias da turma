@@ -1,0 +1,43 @@
+
+import java.util.Scanner;
+import java.util.Locale;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner entrada = new Scanner(System.in);
+        entrada.useLocale(Locale.US);
+
+        System.out.print("Quantos alunos tem na turma? ");
+        int quantidade = entrada.nextInt();
+
+        double[] notas = new double[quantidade];
+
+        double soma = 0;
+        double maior = 0;
+        int aprovados = 0;
+
+        for (int i = 0; i < quantidade; i++) {
+            System.out.print("Digite a nota do aluno " + (i + 1) + ": ");
+            notas[i] = entrada.nextDouble();
+
+            soma += notas[i];
+
+            if (i == 0 || notas[i] > maior) {
+                maior = notas[i];
+            }
+
+            if (notas[i] >= 6) {
+                aprovados++;
+            }
+        }
+
+        double media = soma / quantidade;
+
+        System.out.println("\n--- RESULTADO DA TURMA ---");
+        System.out.printf("Média da turma: %.2f%n", media);
+        System.out.println("Maior nota: " + maior);
+        System.out.println("Quantidade de aprovados: " + aprovados);
+
+        entrada.close();
+    }
+}
